@@ -270,3 +270,92 @@ footer small{color:var(--soft)}
   footer .wrap{flex-direction:column;align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ================= lively layer ================= */
+/* "You grow." gets resized by Gela's cursor */
+.sel{transform-origin:0 50%;animation:growbox 5s ease-in-out 1.2s infinite}
+.sel .cursor.drag{position:absolute;right:-34px;bottom:-44px;top:auto;left:auto;animation:none}
+.sel .cursor.drag span{font-family:var(--body);font-size:.8rem;letter-spacing:0;line-height:1.4}
+@keyframes growbox{0%,25%{transform:scale(1)}50%,72%{transform:scale(1.07)}92%,100%{transform:scale(1)}}
+
+/* draggable things */
+[data-drag]{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+[data-drag].dragging{cursor:grabbing;z-index:20}
+.frame[data-drag].dragging .pic{box-shadow:14px 14px 0 var(--ink)}
+.sticky[data-drag]{z-index:6}
+.sticky.dragging{box-shadow:6px 12px 0 rgba(16,36,62,.3)}
+.hint{position:absolute;right:-6px;bottom:-78px;font-size:1.3rem;color:var(--ink);opacity:.75;transform:rotate(-3deg)}
+.frame img{pointer-events:none}
+
+/* colorful running strip */
+.strip .track span:nth-child(4n+1)::after{background:var(--sky)}
+.strip .track span:nth-child(4n+2)::after{background:var(--pink)}
+.strip .track span:nth-child(4n+3)::after{background:var(--sun)}
+.strip .track span:nth-child(4n+4)::after{background:var(--mint)}
+.strip:hover .track{animation-play-state:paused}
+
+/* cards wiggle a bit on hover */
+.svc{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+.svc:nth-child(odd):hover{transform:rotate(-1.2deg) translateY(-6px);box-shadow:8px 8px 0 var(--ink)}
+.svc:nth-child(even):hover{transform:rotate(1.2deg) translateY(-6px);box-shadow:-8px 8px 0 var(--ink)}
+.svc.wide:hover{transform:translateY(-4px)}
+
+/* mini UIs come alive when scrolled into view */
+.js .svc .mini-browser .pg b,.js .svc .mini-browser .pg u{transform:scaleX(0);transform-origin:left}
+.js .svc .mini-browser .pg em,.js .svc .mini-browser .pg s{transform:scale(0)}
+.svc.play .mini-browser .pg b{animation:barin .6s .1s cubic-bezier(.3,1.4,.5,1) forwards}
+.svc.play .mini-browser .pg u{animation:barin .6s .3s cubic-bezier(.3,1.4,.5,1) forwards}
+.svc.play .mini-browser .pg u+u{animation-delay:.45s}
+.svc.play .mini-browser .pg s{animation:pop .5s .7s cubic-bezier(.3,1.8,.5,1) forwards}
+.svc.play .mini-browser .pg em{animation:pop .6s .5s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes barin{to{transform:scaleX(1)}}
+@keyframes pop{to{transform:scale(1)}}
+
+.js .svc .heart{transform:scale(0)}
+.svc.play .heart{animation:pop .5s .4s cubic-bezier(.3,1.9,.5,1) forwards}
+.svc.play .mini-phone .acts i:first-child{animation:like 1s 1.4s both}
+@keyframes like{40%{background:var(--pink);transform:scale(1.4)}100%{background:var(--pink);transform:scale(1)}}
+
+.bub.typing{display:none}
+.js .bub.typing{display:flex;flex-direction:row;gap:5px;padding:12px 14px;opacity:0}
+.bub.typing b{width:7px;height:7px;border-radius:50%;background:var(--paper);animation:dot 1s infinite}
+.bub.typing b:nth-child(2){animation-delay:.15s}.bub.typing b:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.js .bub.reply{display:none}
+.svc.play .bub.typing{animation:typing 1.4s .4s forwards}
+.svc.play .bub.reply{display:flex;opacity:0;animation:fadeup .4s 1.8s forwards}
+@keyframes typing{0%{opacity:0}15%,85%{opacity:1}100%{opacity:0;display:none;height:0;padding:0;border:0}}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mini-chat{min-height:120px;align-content:start}
+
+.mini-check li i{transition:background .2s}
+.mini-check li span{transition:opacity .3s}
+
+/* loading bar fills on scroll */
+.js .loader i{width:0;transition:width 2.4s cubic-bezier(.4,0,.2,1)}
+.js .proc.play .loader i{width:100%}
+.js .stages li{opacity:.25;transition:opacity .4s}
+.js .proc.play .stages li{opacity:1}
+.js .proc.play .stages li:nth-child(1){transition-delay:.3s}
+.js .proc.play .stages li:nth-child(2){transition-delay:.9s}
+.js .proc.play .stages li:nth-child(3){transition-delay:1.5s}
+.js .proc.play .stages li:nth-child(4){transition-delay:2.1s}
+.loader i{animation:stripes 1s linear infinite;background-size:40px 40px}
+@keyframes stripes{to{background-position:40px 0}}
+
+/* "you?" cursor follows the visitor in the CTA */
+.cta-box .cursor.you{transition:left .12s linear,top .12s linear}
+
+/* buttons bounce */
+.btn:hover{animation:jelly .5s}
+@keyframes jelly{30%{scale:1.06 .94}55%{scale:.97 1.03}80%{scale:1.02 .98}}
+
+/* confetti */
+.confetti{position:fixed;top:-12px;width:10px;height:14px;border-radius:3px;z-index:100;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r))}}
+
+@media(max-width:880px){
+  .sel .cursor.drag{right:-20px;bottom:-40px}
+  .hint{position:static;margin-top:20px;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.js .loader i{width:100%}.js .stages li{opacity:1}.js .bub.reply{display:flex}.js .bub.typing{display:none}.js .svc *{transform:none!important}}
