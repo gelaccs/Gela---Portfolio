@@ -356,6 +356,6 @@ footer small{color:var(--soft)}
 
 @media(max-width:880px){
   .sel .cursor.drag{right:-20px;bottom:-40px}
-  .hint{position:static;margin-top:20px;text-align:center}
+  .hint{display:none}
 }
 @media(prefers-reduced-motion:reduce){.js .loader i{width:100%}.js .stages li{opacity:1}.js .bub.reply{display:flex}.js .bub.typing{display:none}.js .svc *{transform:none!important}}
