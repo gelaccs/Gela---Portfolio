@@ -9,21 +9,13 @@ if (burger && menu) {
   });
 }
 
-// Flip postcards
-document.querySelectorAll('.pc').forEach((card) => {
-  card.addEventListener('click', () => {
-    const flipped = card.classList.toggle('flip');
-    card.setAttribute('aria-pressed', flipped);
-  });
-});
-
-// Booking form (Formspree)
+// Contact form (Formspree)
 const form = document.getElementById('form');
 const status = document.getElementById('status');
 if (form && status) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    status.textContent = 'Sending your booking…';
+    status.textContent = 'Sending…';
     try {
       const res = await fetch(form.action, {
         method: 'POST',
@@ -31,10 +23,10 @@ if (form && status) {
         headers: { Accept: 'application/json' }
       });
       if (!res.ok) throw new Error();
-      status.textContent = "Booking sent! I'll get back to you within a day or two.";
+      status.textContent = "Message sent. I'll get back to you within a day or two.";
       form.reset();
     } catch {
-      status.textContent = "Your booking didn't go through. Please email webcreate1206@gmail.com instead.";
+      status.textContent = "Your message didn't go through. Please email webcreate1206@gmail.com instead.";
     }
   });
 }
