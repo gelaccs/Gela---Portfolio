@@ -5,50 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — CreateByGela</title>
 <meta name="description" content="Start a project with CreateByGela.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header><div class="wrap"><nav>
-  <a class="logo" href="index.html"><i></i>Create<em>By</em>Gela</a>
-  <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
-  <div class="links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="contact.html" class="active" aria-current="page">Contact</a></div>
+  <a class="logo" href="index.html">CreateBy<span>Gela</span></a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <div class="links" id="menu"><a href="portfolio.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a></div>
 </nav></div></header>
 <main>
-<section class="contact" style="padding-top:84px"><div class="wrap contact-grid">
-  <div class="rv">
-    <h2>Have an idea?<br><span>Let's create it.</span></h2>
-    <p>Tell me a little about your project. I'll reply within a day or two.</p>
-    <ul class="clist">
-      <li><a href="mailto:webcreate1206@gmail.com">Email <span>webcreate1206@gmail.com</span></a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=61593954279510" target="_blank" rel="noopener">Facebook <span>Web Create</span></a></li>
-      <li><a href="https://www.instagram.com/_webcreate" target="_blank" rel="noopener">Instagram <span>@_webcreate</span></a></li>
-      <li><a href="https://www.linkedin.com/in/angela-reynoso-3a8237406" target="_blank" rel="noopener">LinkedIn <span>Angela Reynoso</span></a></li>
-    </ul>
-  </div>
-  <form id="form" class="rv" action="https://formspree.io/f/mvkorype" method="POST">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="subject" placeholder="Subject" required>
-    <textarea name="message" placeholder="Tell me about your project" required></textarea>
-    <button class="btn" type="submit">Send Message</button>
+<div class="wrap pagehead">
+  <h1>Contact</h1>
+  <p>Tell me a little about your project. I'll reply within a day or two.</p>
+</div>
+<section style="padding-top:24px"><div class="wrap contact-grid">
+  <ul class="direct">
+    <li><span>Email</span><a href="mailto:webcreate1206@gmail.com">webcreate1206@gmail.com</a></li>
+    <li><span>Facebook</span><a href="https://www.facebook.com/profile.php?id=61593954279510" target="_blank" rel="noopener">Web Create</a></li>
+    <li><span>Instagram</span><a href="https://www.instagram.com/_webcreate" target="_blank" rel="noopener">@_webcreate</a></li>
+    <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/angela-reynoso-3a8237406" target="_blank" rel="noopener">Angela Reynoso</a></li>
+  </ul>
+  <form id="form" action="https://formspree.io/f/mvkorype" method="POST">
+    <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+    <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    <label>Subject<input type="text" name="subject" required></label>
+    <label>About your project<textarea name="message" required></textarea></label>
+    <button class="btn" type="submit">Send message</button>
     <p id="status" role="status"></p>
   </form>
 </div></section>
+
 </main>
 <footer><div class="wrap">
-  <div class="fgrid">
-    <div><a class="logo" href="index.html"><i></i>Create<em>By</em>Gela</a><p>Websites, content, and digital support for businesses ready to grow.</p></div>
-    <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h4>Services</h4><ul><li><a href="services.html">Build</a></li><li><a href="services.html">Grow</a></li><li><a href="services.html">Automate</a></li><li><a href="services.html">Operate</a></li></ul></div>
-    <div><h4>Social</h4><ul>
-      <li><a href="https://www.facebook.com/profile.php?id=61593954279510" target="_blank" rel="noopener">Facebook</a></li>
-      <li><a href="https://www.instagram.com/_webcreate" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.linkedin.com/in/angela-reynoso-3a8237406" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
-  </div>
-  <div class="copy">© 2026 CreateByGela. All rights reserved.</div>
+  <span>© 2026 CreateByGela</span>
+  <span><a href="https://www.facebook.com/profile.php?id=61593954279510" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/_webcreate" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/angela-reynoso-3a8237406" target="_blank" rel="noopener">LinkedIn</a></span>
 </div></footer>
 <script src="script.js"></script>
 </body>
